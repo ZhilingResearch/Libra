@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70577fac-e598-423b-8b3c-7915e7d9cdd3" name="更改" comment="" />
+    <list default="true" id="70577fac-e598-423b-8b3c-7915e7d9cdd3" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +30,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2pVgTpU10chhmNjPsnvy8JshA5x" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -232,6 +237,7 @@
       <workItem from="1733021792571" duration="2712000" />
       <workItem from="1733044882582" duration="1427000" />
       <workItem from="1733049979907" duration="7329000" />
+      <workItem from="1733060600000" duration="156000" />
     </task>
     <servers />
   </component>
