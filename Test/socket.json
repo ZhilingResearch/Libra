@@ -1,0 +1,12 @@
+{
+  "RemoteRedis": {
+    "host": "47.109.49.143",
+    "port": 6379,
+    "password": "dinglan",
+    "channel_name": "carla"
+  },
+  "LocalSocket": {
+    "host": "127.0.0.1",
+    "port": 12347
+  }
+}
