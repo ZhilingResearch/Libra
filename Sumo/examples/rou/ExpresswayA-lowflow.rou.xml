@@ -1,0 +1,27 @@
+<routes>
+    <vType id="car" vClass = "passenger" tau = "0.952391" desiredMaxSpeed = "19.870757" delta = "21.118213"
+     accel = "1.043736" decel = "0.22795" minGap = "9.035163"
+     length = "4.75" callFollowMode="carFollowing-IDM" departSpeed = "max" 
+     actionStepLength="0.1" lcAssertive = "5"/>
+
+
+  <flow id="car_0_"  begin="0" end="7200" vehsPerHour="1780"  type="car" departLane='best' color="1,1,0"
+      from = "96" to = "9" />
+  <flow id="car_1_"  begin="0" end="7200" vehsPerHour="1780" type="car" departLane='best' color="1,1,0"
+      from = "-90" to = "-32" />
+  <flow id="car_2_"  begin="0" end="7200" vehsPerHour="890"  type="car" departLane='best' color="1,1,0"
+      from = "96" to = "-22" />
+  <flow id="car_3_"  begin="0" end="7200" vehsPerHour="890" type="car" departLane='best' color="1,1,0"
+      from = "-90" to = "54" />
+  <flow id="car_4_"  begin="0" end="7200" vehsPerHour="20"  type="car" departLane='best' color="0,1,0"
+      from = "-65" to = "9" />
+  <flow id="car_5_"  begin="0" end="7200" vehsPerHour="20" type="car" departLane='best' color="0,1,0"
+      from = "95" to = "-32" />
+  <flow id="car_6_"  begin="0" end="7200" vehsPerHour="110"  type="car" departLane='best' color="0,1,0"
+      from = "-65" to = "-22" />
+  <flow id="car_7_"  begin="0" end="7200" vehsPerHour="110" type="car" departLane='best' color="0,1,0"
+      from = "95" to = "54" />
+   
+
+
+</routes> 

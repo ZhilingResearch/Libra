@@ -35,5 +35,9 @@ Mainstream Benchmark<br /><sub><sup>Easily reproduce the HUD design solutions of
 ![](images/mainstream1.jpg)| ![](images/creativity1.jpg)
 ![](images/mainstream2.jpg) | ![](images/creativity2.jpg)
 
+# Map Install
+https://pan.baidu.com/s/1372Q-y19nhr9NfioUStXRA?pwd=yqmi 
+
+
 
 

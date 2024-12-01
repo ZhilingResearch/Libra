@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-11-25 14:08:59 by Eclipse SUMO GUI Version 1.21.0
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="./examples/net/Town01.net.xml"/>
+        <route-files value="./examples/carlavtypes.rou.xml,./examples/rou/Town01.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="results/Town01.xml"/>
+    </output>
+
+    <time>
+        <step-length value="0.01"/>
+    </time>
+
+    <processing>
+        <lateral-resolution value="0.25"/>
+        <collision.check-junctions value="true"/>
+    </processing>
+
+    <traci_server>
+        <remote-port value="11614"/>
+    </traci_server>
+
+    <gui_only>
+        <gui-settings-file value="./examples/viewsettings.xml"/>
+        <quit-on-end value="true"/>
+        <start value="true"/>
+        <delay value="200"/>
+    </gui_only>
+
+</sumoConfiguration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="0" depart="0.00" departLane="-16.0.00_2" departPos="6.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.00" arrival="14.29" arrivalLane="-18.0.00_2" arrivalPos="41.99" arrivalPosLat="0.00" arrivalSpeed="14.72" duration="14.29" routeLength="168.77" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="2.83" rerouteNo="0" devices="tripinfo_0" vType="vehicle.aito_m9.aito_m9" speedFactor="1.06" vaporized=""/>
+</tripinfos>
