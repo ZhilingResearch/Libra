@@ -3,7 +3,7 @@
 
     <input>
         <net-file value="net/11_04tflj.net.xml"/>
-        <route-files value="carlavtypes.rou.xml,rou/ExpresswayA-highflow.rou.xml"/>
+        <route-files value="carlavtypes.rou.xml,rou/11_04tflj.rou.xml"/>
     </input>
 
     <gui_only>

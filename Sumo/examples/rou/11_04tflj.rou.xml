@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2024-11-18 15:32:43.913043 by randomTrips.py v1_21_0+0000-d7b3b481c43
+<!-- generated on 2024-12-03 11:56:22.524022 by randomTrips.py v1_21_0+0000-d7b3b481c43
 <configuration>
-    <net-file value="tflj_sign.net.xml"/>
-    <route-file value="tflj_sign.rou.xml"/>
+    <net-file value="11_04tflj.net.xml"/>
+    <route-file value="11_04tflj.rou.xml"/>
     <length value="True"/>
-    <end value="300.0"/>
+    <end value="50.0"/>
     <period value="0.1"/>
 </configuration>
 -->
 
-<!-- generated on 2024-11-18 15:32:43 by Eclipse SUMO duarouter Version 1.21.0
+<!-- generated on 2024-12-03 11:56:22 by Eclipse SUMO duarouter Version 1.21.0
 <duarouterConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
 
     <input>
-        <net-file value="tflj_sign.net.xml"/>
+        <net-file value="11_04tflj.net.xml"/>
         <route-files value="trips.trips.xml"/>
     </input>
 
     <output>
-        <output-file value="tflj_sign.rou.xml"/>
+        <output-file value="11_04tflj.rou.xml"/>
         <alternatives-output value="NUL"/>
     </output>
 
     <time>
         <begin value="0"/>
-        <end value="300.0"/>
+        <end value="50.0"/>
     </time>
 
     <report>
@@ -38,7 +38,21 @@
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+
     <vehicle id="0" type="vehicle.aito_m9.aito_m9" depart="0.00">
-        <route edges="24 -4 -30"/>
+        <route edges="24 -4"/>
+    </vehicle>
+    <vehicle id="1" depart="0.10">
+        <route edges="-3 -90"/>
+    </vehicle>
+    <vehicle id="4" depart="0.40">
+        <route edges="86 96"/>
+    </vehicle>
+    <vehicle id="6" depart="0.60">
+        <route edges="-32 -62#0"/>
+    </vehicle>
+    <vehicle id="10" depart="1.00">
+        <route edges="9 49"/>
     </vehicle>
 </routes>

@@ -16,12 +16,23 @@ Script to integrate CARLA and SUMO simulations
 import argparse
 import logging
 import time
+
+# ==================================================================================================
+# -- find carla module -----------------------------------------------------------------------------
+# ==================================================================================================
+
+import glob
 import os
 import sys
-import carla
-import sumolib
-import traci
-from agents.tools.misc import get_speed
+import random
+
+try:
+    sys.path.append(
+        glob.glob('../../PythonAPI/carla/dist/carla-*%d.%d-%s.egg' %
+                  (sys.version_info.major, sys.version_info.minor,
+                   'win-amd64' if os.name == 'nt' else 'linux-x86_64'))[0])
+except IndexError:
+    pass
 
 # ==================================================================================================
 # -- find traci module -----------------------------------------------------------------------------
@@ -78,10 +89,13 @@ class SimulationSynchronization(object):
         BridgeHelper.offset = self.sumo.get_net_offset()
 
         # Configuring carla simulation in sync mode.
-        # settings = self.carla.world.get_settings()
-        # settings.synchronous_mode = True
-        # settings.fixed_delta_seconds = self.carla.step_length
-        # self.carla.world.apply_settings(settings)
+        settings = self.carla.world.get_settings()
+        settings.synchronous_mode = True
+        settings.fixed_delta_seconds = self.carla.step_length
+        self.carla.world.apply_settings(settings)
+
+        traffic_manager = self.carla.client.get_trafficmanager()
+        traffic_manager.set_synchronous_mode(True)
 
     def tick(self):
         """
@@ -217,23 +231,38 @@ class SimulationSynchronization(object):
 
 
 def synchronization_loop(args):
+    """
+    Entry point for sumo-carla co-simulation.
+    """
+    sumo_simulation = SumoSimulation(args.sumo_cfg_file, args.step_length, args.sumo_host,
+                                     args.sumo_port, args.sumo_gui, args.client_order)
+    carla_simulation = CarlaSimulation(args.carla_host, args.carla_port, args.step_length)
+
+    synchronization = SimulationSynchronization(sumo_simulation, carla_simulation, args.tls_manager,
+                                                args.sync_vehicle_color, args.sync_vehicle_lights)
+    # vehicles_list=[]
+    # for i in range(300):
+    #     v=carla_simulation.world.try_spawn_actor(random.choice(carla_simulation.world.get_blueprint_library().filter("vehicle.*")),random.choice(carla_simulation.world.get_map().get_spawn_points()))
+    #     if v:
+    #         v.set_autopilot(True)
+    #         vehicles_list.append(v)
     try:
-        for _ in range(1):
-            """
-            Entry point for sumo-carla co-simulation.
-            """
-            sumo_simulation = SumoSimulation(args.sumo_cfg_file, args.step_length, args.sumo_host,
-                                             args.sumo_port, args.sumo_gui, args.client_order)
-            carla_simulation = CarlaSimulation(args.carla_host, args.carla_port, args.step_length)
+        while True:
+            start = time.time()
 
-            synchronization = SimulationSynchronization(sumo_simulation, carla_simulation, args.tls_manager,
-                                                        args.sync_vehicle_color, args.sync_vehicle_lights)
+            synchronization.tick()
 
-            # 自己加了代码可能会报错，例如获取数据时车子已经没了
-            while traci.simulation.getMinExpectedNumber() > 0:
-                synchronization.tick()
+            end = time.time()
+            elapsed = end - start
+            if elapsed < args.step_length:
+                time.sleep(args.step_length - elapsed)
+
+    except KeyboardInterrupt:
+        logging.info('Cancelled by user.')
 
     finally:
+        logging.info('Cleaning synchronization')
+
         synchronization.close()
 
 
@@ -260,7 +289,7 @@ if __name__ == '__main__':
                            help='TCP port to listen to (default: 8813)')
     argparser.add_argument('--sumo-gui', action='store_true', help='run the gui version of sumo')
     argparser.add_argument('--step-length',
-                           default=0.01,
+                           default=0.05,
                            type=float,
                            help='set fixed delta seconds (default: 0.05s)')
     argparser.add_argument('--client-order',

@@ -17,7 +17,6 @@ import random
 from time import sleep
 
 import carla
-from torch.nn.functional import selu_
 
 
 class Weather(object):

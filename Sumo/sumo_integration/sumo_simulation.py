@@ -163,7 +163,7 @@ class SumoTLManager(object):
         self._tls = {}  # {tlid: {program_id: SumoTLLogic}
         self._current_program = {}  # {tlid: program_id}
         self._current_phase = {}  # {tlid: index_phase}
-        print(f"sumo信号灯的id列表：{traci.trafficlight.getIDList()}")
+
         for tlid in traci.trafficlight.getIDList():
             self.subscribe(tlid)
 
@@ -319,17 +319,14 @@ class SumoSimulation(object):
             if sumo_gui is True:
                 logging.info('Remember to press the play button to start the simulation')
 
-            output_result=cfg_file.split('/')[-1].split('.')[0]
-            print(cfg_file)
             traci.start([sumo_binary,
                 '--configuration-file', cfg_file,
                 '--step-length', str(step_length),
                 '--lateral-resolution', '0.25',
                 '--collision.check-junctions',
-                "--tripinfo-output", f"results/{output_result}.xml",  # 输出结果,必须存在results文件夹
-                "--delay","200",
-                "--start",  # 自动开始
-                "--quit-on-end",  # 自动退出
+                 "--delay", "100",
+                 "--start",  # 自动开始
+                 "--quit-on-end",  # 自动退出
             ])
 
         else:

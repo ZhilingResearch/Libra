@@ -14,7 +14,6 @@
 import logging
 
 import carla  # pylint: disable=import-error
-from pygments.lexer import words
 
 from .constants import INVALID_ACTOR_ID, SPAWN_OFFSET_Z
 
@@ -29,10 +28,9 @@ class CarlaSimulation(object):
     """
     def __init__(self, host, port, step_length):
         self.client = carla.Client(host, port)
-        self.client.set_timeout(10.0)
+        self.client.set_timeout(2.0)
 
         self.world = self.client.get_world()
-        self.env_map=self.world.get_map()
         self.blueprint_library = self.world.get_blueprint_library()
         self.step_length = step_length
 
@@ -47,13 +45,13 @@ class CarlaSimulation(object):
         tmp_map = self.world.get_map()
         for landmark in tmp_map.get_all_landmarks_of_type('1000001'):
             if landmark.id != '':
-                traffic_light = self.world.get_traffic_light(landmark)
-                if traffic_light is not None:
-                    self._tls[landmark.id] = traffic_light
+                traffic_ligth = self.world.get_traffic_light(landmark)
+                if traffic_ligth is not None:
+                    self._tls[landmark.id] = traffic_ligth
                 else:
                     logging.warning('Landmark %s is not linked to any traffic light', landmark.id)
 
-    def get_actor(self, actor_id)-> carla.Actor:
+    def get_actor(self, actor_id):
         """
         Accessor for carla actor.
         """
@@ -92,15 +90,13 @@ class CarlaSimulation(object):
         """
         Switch off all traffic lights.
         """
-        traffic_ids=[]
         for actor in self.world.get_actors():
             if actor.type_id == 'traffic.traffic_light':
-                traffic_ids.append(actor.id)
                 actor.freeze(True)
                 # We set the traffic light to 'green' because 'off' state sets the traffic light to
                 # 'red'.
                 actor.set_state(carla.TrafficLightState.Green)
-        print(f"carla的信号灯id列表：{traffic_ids}")
+
     def spawn_actor(self, blueprint, transform):
         """
         Spawns a new actor.
