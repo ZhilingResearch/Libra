@@ -7,10 +7,11 @@ def main():
     world = client.get_world()  # 获取世界对象
     spectator = world.get_spectator()  # ue4中观察者对象
 
-    xodr_path=r"D:\carla\Unreal\CarlaUE4\Content\Custom\Maps\OpenDrive\QingyiBridge1129.xodr"
-    with open(xodr_path, encoding="utf-8") as f:
-        xodr_str=f.read()
-    env_map = carla.Map(xodr_path.split("\\")[-1].split(".")[0],xodr_str)
+    # xodr_path=r"D:\carla\Unreal\CarlaUE4\Content\Custom\Maps\OpenDrive\QingyiBridge1129.xodr"
+    # with open(xodr_path, encoding="utf-8") as f:
+    #     xodr_str=f.read()
+    # env_map = carla.Map(xodr_path.split("\\")[-1].split(".")[0],xodr_str)
+    env_map=world.get_map()
 
     waypoints = env_map.generate_waypoints(20)
     spectator.set_transform(waypoints[0].transform)

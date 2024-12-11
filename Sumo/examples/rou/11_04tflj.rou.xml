@@ -38,8 +38,6 @@
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-
-
     <vehicle id="0" type="vehicle.aito_m9.aito_m9" depart="0.00">
         <route edges="24 -4"/>
     </vehicle>

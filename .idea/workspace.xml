@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70577fac-e598-423b-8b3c-7915e7d9cdd3" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sumo/examples/11_04tflj.sumocfg" beforeDir="false" afterPath="$PROJECT_DIR$/Sumo/examples/11_04tflj.sumocfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sumo/examples/carlavtypes.rou.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sumo/examples/carlavtypes.rou.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sumo/results/11_04tflj.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sumo/results/11_04tflj.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sumo/run_synchronization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sumo/run_synchronization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sumo/sumo_integration/carla_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sumo/sumo_integration/carla_simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sumo/sumo_integration/sumo_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sumo/sumo_integration/sumo_simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_code/manual视角切换.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_code/manual视角切换.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_code/改变天气.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_code/改变天气.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PythonAPI/examples/manual_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonAPI/examples/manual_control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sumo/examples/rou/11_04tflj.rou.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sumo/examples/rou/11_04tflj.rou.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/carla_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/carla_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_code/查看道路方向.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_code/查看道路方向.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +48,7 @@
     "Python.generate_traffic.executor": "Run",
     "Python.get_data.executor": "Run",
     "Python.hud_main.executor": "Run",
+    "Python.manual_control.executor": "Run",
     "Python.manual视角切换.executor": "Run",
     "Python.randomTrips.executor": "Run",
     "Python.run_synchronization.executor": "Run",
@@ -61,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Lenovo/Desktop/Libra/Sumo/sumo_integration",
+    "last_opened_file_path": "C:/Users/Lenovo/Desktop/Libra/config",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,6 +69,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Desktop\Libra\config" />
       <recent name="C:\Users\Lenovo\Desktop\Libra\Sumo\sumo_integration" />
       <recent name="C:\Users\Lenovo\Desktop\Libra\Sumo" />
       <recent name="C:\Users\Lenovo\Desktop\Libra\images" />
@@ -81,7 +78,7 @@
       <recent name="C:\Users\Lenovo\Desktop\Libra\Sumo\examples\rou" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run_synchronization">
+  <component name="RunManager" selected="Python.hud_main">
     <configuration name="查看道路方向" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Libra" />
       <option name="ENV_FILES" value="" />
@@ -105,7 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="generate_traffic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="carla_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Libra" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,35 +111,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/custom_code" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/custom_code/generate_traffic.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="get_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Libra" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/util" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util/get_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/carla_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,6 +164,29 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/custom_code/manual视角切换.py" />
       <option name="PARAMETERS" value="--filter id4" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manual_control" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Libra" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PythonAPI/examples" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PythonAPI/examples/manual_control.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -268,11 +265,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sumo_simulation" />
-        <item itemvalue="Python.generate_traffic" />
-        <item itemvalue="Python.查看道路方向" />
         <item itemvalue="Python.hud_main" />
-        <item itemvalue="Python.get_data" />
+        <item itemvalue="Python.查看道路方向" />
+        <item itemvalue="Python.carla_main" />
+        <item itemvalue="Python.manual_control" />
+        <item itemvalue="Python.sumo_simulation" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +304,11 @@
       <workItem from="1733110786725" duration="633000" />
       <workItem from="1733123760879" duration="882000" />
       <workItem from="1733194651312" duration="13828000" />
-      <workItem from="1733360926440" duration="4887000" />
+      <workItem from="1733360926440" duration="10414000" />
+      <workItem from="1733737377640" duration="3000" />
+      <workItem from="1733737389178" duration="5525000" />
+      <workItem from="1733810654133" duration="528000" />
+      <workItem from="1733897071671" duration="2708000" />
     </task>
     <servers />
   </component>
@@ -317,12 +318,13 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Libra$run_synchronization.coverage" NAME="run_synchronization 覆盖结果" MODIFIED="1733364403779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo" />
     <SUITE FILE_PATH="coverage/Libra$sumo_simulation.coverage" NAME="sumo_simulation 覆盖结果" MODIFIED="1733361743488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo/sumo_integration" />
-    <SUITE FILE_PATH="coverage/Libra$hud_main.coverage" NAME="hud_main 覆盖结果" MODIFIED="1733059775983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Libra$manual_control.coverage" NAME="manual_control 覆盖结果" MODIFIED="1733388040258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
+    <SUITE FILE_PATH="coverage/Libra$hud_main.coverage" NAME="hud_main 覆盖结果" MODIFIED="1733900060742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Libra$randomTrips.coverage" NAME="randomTrips 覆盖结果" MODIFIED="1733198181668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo/examples/net" />
-    <SUITE FILE_PATH="coverage/Libra$.coverage" NAME="查看道路方向 覆盖结果" MODIFIED="1733102909324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
+    <SUITE FILE_PATH="coverage/Libra$.coverage" NAME="查看道路方向 覆盖结果" MODIFIED="1733810698737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
     <SUITE FILE_PATH="coverage/Libra$manual.coverage" NAME="manual视角切换 覆盖结果" MODIFIED="1733194847696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
     <SUITE FILE_PATH="coverage/Libra$generate_traffic.coverage" NAME="generate_traffic 覆盖结果" MODIFIED="1733104182320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
-    <SUITE FILE_PATH="coverage/Libra$carla_main.coverage" NAME="carla_main 覆盖结果" MODIFIED="1732869942292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Libra$carla_main.coverage" NAME="carla_main 覆盖结果" MODIFIED="1733388199816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Libra$get_data.coverage" NAME="get_data 覆盖结果" MODIFIED="1733023899152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
   </component>
 </project>

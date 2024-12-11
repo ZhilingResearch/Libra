@@ -1,0 +1,28 @@
+SIMFILE
+
+SET_MACRO $(ROOT_FILE_NAME)$ Run_dfab1b15-00d1-4278-b51e-515d7a2d7fc2
+SET_MACRO $(OUTPUT_PATH)$ D:\software\CarSim2020.0_Prog\Documents\CarSim2020.0_Data\Results
+SET_MACRO $(WORK_DIR)$ D:\software\CarSim2020.0_Prog\Documents\CarSim2020.0_Data\
+SET_MACRO $(OUTPUT_FILE_PREFIX)$ $(WORK_DIR)$Results\Run_dfab1b15-00d1-4278-b51e-515d7a2d7fc2\LastRun
+
+FILEBASE $(OUTPUT_FILE_PREFIX)$
+INPUT $(WORK_DIR)$Results\$(ROOT_FILE_NAME)$\Run_all.par
+INPUTARCHIVE $(OUTPUT_FILE_PREFIX)$_all.par
+ECHO $(OUTPUT_FILE_PREFIX)$_echo.par
+FINAL $(OUTPUT_FILE_PREFIX)$_end.par
+LOGFILE $(OUTPUT_FILE_PREFIX)$_log.txt
+ERDFILE $(OUTPUT_FILE_PREFIX)$.vs
+PROGDIR D:\software\CarSim2020.0_Prog\
+DATADIR D:\software\CarSim2020.0_Prog\Documents\CarSim2020.0_Data\
+GUI_REFRESH_V CarSim_RefreshEvent_35984
+RESOURCEDIR D:\software\CarSim2020.0_Prog\\Resources\
+PRODUCT_ID CarSim
+PRODUCT_VER 2020.0
+ANIFILE D:\software\CarSim2020.0_Prog\Documents\CarSim2020.0_Data\runs\animator.par
+VEHICLE_CODE i_i
+EXT_MODEL_STEP 0.00050000
+PORTS_IMP 0
+PORTS_EXP 0
+
+DLLFILE D:\software\CarSim2020.0_Prog\Programs\solvers\carsim_64.dll
+END

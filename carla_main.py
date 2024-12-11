@@ -342,7 +342,7 @@ def obstacle_callback(data):
 
 def main():
     # width, height = 1920, 1080
-    width, height = 3440,1300
+    width, height = 3440*3,1300
     vehicle_list = []
     sensor_list = []
 
