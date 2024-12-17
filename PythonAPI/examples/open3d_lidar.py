@@ -30,7 +30,6 @@ except IndexError:
 import carla
 
 VIRIDIS = np.array(cm.get_cmap('plasma').colors)
-print(VIRIDIS)
 VID_RANGE = np.linspace(0.0, 1.0, VIRIDIS.shape[0])
 LABEL_COLORS = np.array([
     (255, 255, 255), # 无
@@ -56,8 +55,18 @@ LABEL_COLORS = np.array([
     (170, 120, 50),  # Dynamic
     (45, 60, 150),   # Water
     (145, 170, 100), # Terrain
+    (0,0,0),
+    (0,0,0),
+    (0,0,0),
+    (0,0,0),
+    (0,0,0),
+    (0,0,0),
+    (0,0,0),
+    (0,0,0),
+    (0,0,0),
 ]) / 255.0 # normalize each channel [0-1] since is what Open3D uses
-
+all_points = []
+all_colors = []
 
 def lidar_callback(point_cloud, point_list):
     """Prepares a point cloud with intensity
@@ -80,6 +89,7 @@ def lidar_callback(point_cloud, point_list):
     # what we see in Unreal since Open3D uses a right-handed coordinate system
     points[:, :1] = -points[:, :1]
 
+
     # # An example of converting points from sensor to vehicle space if we had
     # # a carla.Transform variable named "tran":
     # points = np.append(points, np.ones((points.shape[0], 1)), axis=1)
@@ -91,8 +101,12 @@ def lidar_callback(point_cloud, point_list):
 
 
 def semantic_lidar_callback(point_cloud, point_list):
-    """Prepares a point cloud with semantic segmentation
-    colors ready to be consumed by Open3D"""
+    global all_points, all_colors
+    """
+    Prepares a point cloud with semantic segmentation
+    colors ready to be consumed by Open3D and saves previous scanned points
+    """
+
     data = np.frombuffer(point_cloud.raw_data, dtype=np.dtype([
         ('x', np.float32), ('y', np.float32), ('z', np.float32),
         ('CosAngle', np.float32), ('ObjIdx', np.uint32), ('ObjTag', np.uint32)]))
@@ -108,12 +122,15 @@ def semantic_lidar_callback(point_cloud, point_list):
     labels = np.array(data['ObjTag'])
     int_color = LABEL_COLORS[labels]
 
-    # # In case you want to make the color intensity depending
-    # # of the incident ray angle, you can use:
-    # int_color *= np.array(data['CosAngle'])[:, None]
+    # all_points.extend(points)
+    # all_colors.extend(int_color)
 
-    point_list.points = o3d.utility.Vector3dVector(points)
-    point_list.colors = o3d.utility.Vector3dVector(int_color)
+    all_points=points
+    all_colors=int_color
+
+
+    point_list.points = o3d.utility.Vector3dVector(all_points)
+    point_list.colors = o3d.utility.Vector3dVector(all_colors)
 
 
 def generate_lidar_bp(arg, world, blueprint_library, delta):

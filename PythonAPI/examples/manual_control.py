@@ -1281,7 +1281,7 @@ def game_loop(args):
         while True:
             if args.sync:
                 sim_world.tick()
-            clock.tick_busy_loop(60)
+            clock.tick_busy_loop(15)
             if controller.parse_events(client, world, clock, args.sync):
                 return
             world.tick(clock)
@@ -1333,7 +1333,8 @@ def main():
     argparser.add_argument(
         '--res',
         metavar='WIDTHxHEIGHT',
-        default='3440x1280',
+        # default='3440x1280',
+        default='1280x720',
         help='window resolution (default: 1280x720)')
     argparser.add_argument(
         '--filter',

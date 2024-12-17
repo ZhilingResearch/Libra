@@ -25,7 +25,7 @@ def main():
         start_location.z += 0.5
         end_location.z += 0.5
 
-        world.debug.draw_arrow(start_location, end_location,life_time=100)
+        world.debug.draw_arrow(start_location, end_location,life_time=-1)
 
 
 if __name__ == '__main__':

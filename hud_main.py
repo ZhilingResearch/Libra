@@ -3,6 +3,7 @@ import base64
 import json
 import math
 import os
+import re
 import socket
 import sys
 import threading
@@ -17,6 +18,20 @@ import requests
 from PySide6.QtCore import QObject, Signal, QTimer, QPointF
 from PySide6.QtWidgets import QApplication, QWidget, QLabel, QGraphicsEffect, QGraphicsOpacityEffect
 from PySide6.QtGui import QFont, QFontDatabase, Qt, QPixmap, QImage, QPainter, QColor
+
+def analyze_socket_dict(data):
+    # 使用正则表达式按照}{进行分割，会得到类似 ["{"name": "ele100,ele75,ele50,ele25", "action": "show_label,hide_label,hide_label,hide_label"}", '{"image": "0", "name": "speed", "action": "update_label"}'] 这样的结果（字节串形式）
+    parts = re.split(b'}(?={)', data)
+
+    # 处理每个部分，将其转换为字典并添加到结果列表中
+    result = []
+    for part in parts:
+        part_str = part.decode('utf-8').strip().rstrip('}').lstrip('{')  # 去除首尾多余的大括号并转换为字符串
+        if part_str:  # 避免空字符串情况（如果存在）
+            dict_obj = json.loads('{' + part_str + '}')  # 构造合法JSON字符串并解析为字典
+            result.append(dict_obj)
+    return result
+
 
 class ServerSocket:
     def __init__(self, main_window):
@@ -62,72 +77,75 @@ class ServerSocket:
                     if not data:
                         break
                     buffer += data
-                    try:
-                        message = json.loads(buffer.decode('utf-8'))  # 反序列化 JSON 数据
-                        break  # 如果成功反序列化，说明数据接收完整，跳出循环
-                    except json.JSONDecodeError:
-                        continue  # 如果无法反序列化，继续接收数据
-                    except Exception as e:
-                        print(f"错误:{e}")
+                    if b"}" in buffer:
+                        messages_list=analyze_socket_dict(buffer)
+                        for message in messages_list:
+                            actions_list = message.get("action").split(",")  # 操作
+                            names_list = message.get("name").split(",")
+                            for index, action in enumerate(actions_list):
+                                name = names_list[index]
+                                message["name"] = name  # 更新name遍历
+                                message["action"] = action  # 更新action遍历
+                                # 创建
+                                if action == "create_label":
+                                    # 如果创建的已经存在，返回存在
+                                    if name in self.main_window.dstc.data:
+                                        response = json.dumps({"status": f"{name} already exist"})
+                                    else:
+                                        self.main_window.create_label_signal.emit(message)
+                                        response = json.dumps({"status": f"{message} created"})
+                                # 更新,不存在自动创建，可能由于emit问题，创建未完成就更新导致看不到，不影响后续更新
+                                elif action == "update_label":
+                                    if name not in self.main_window.dstc.data:
+                                        self.main_window.create_label_signal.emit(message)
+                                        sleep(0.05)  # 不存在新创建的等待创建成功
+                                    else:
+                                        self.main_window.update_label_signal.emit(message)
+                                        response = json.dumps({"status": f"{message.get('name')} updated"})
+                                # 删除
+                                elif action == "delete_label":
+                                    if name in self.main_window.dstc.data:
+                                        self.main_window.delete_label_signal.emit(message.get("name"))
+                                        response = json.dumps({"status": f"{name} deleted"})
+                                    else:
+                                        response = json.dumps({"status": f"{name} no exist"})
+                                # 查询
+                                elif action == "labels":
+                                    response = json.dumps({"keys": ",".join(self.main_window.dstc.data.keys())})
+                                # 显示
+                                elif action == "show_label":
+                                    self.main_window.show_label_signal.emit(message.get("name"))
+                                    response = json.dumps({"status": f"{name} shown"})
+                                # 隐藏
+                                elif action == "hide_label":
+                                    self.main_window.hide_label_signal.emit(name)
+                                    response = json.dumps({"status": f"{name} hidden"})
+                                # 视频
+                                elif action == "video_label":
+                                    print("正在播放视频")
+                                    if message.get("name") in self.main_window.dstc.data:
+                                        response = json.dumps({"status": f"{message.get('name')} already shown"})
+                                    else:
+                                        Video(self.main_window, message)
+
+                                        message["image"] = ""  # 确保路径不会被显示出来
+                                        self.main_window.create_label_signal.emit(message)
+
+                                        response = json.dumps({"status": f"{message.get('name')} play successfully"})
+                                # 无该操作
+                                else:
+                                    response = json.dumps({"status": f"400"})
+
+                            # self.send(username, response)
+                        buffer=b""
+                    # try:
+                    #     message = json.loads(buffer.decode('utf-8'))  # 反序列化 JSON 数据
+                    #     break  # 如果成功反序列化，说明数据接收完整，跳出循环
+                    # except json.JSONDecodeError:
+                    #     continue  # 如果无法反序列化，继续接收数据
+                    # except Exception as e:
+                    #     print(f"错误:{e}")
                 # print(f"收到用户:{username}的消息：{message}")  # 后面值被更改了
-
-                actions_list = message.get("action").split(",")  # 操作
-                names_list = message.get("name").split(",")
-                for index, action in enumerate(actions_list):
-                    name = names_list[index]
-                    message["name"] = name  # 更新name遍历
-                    message["action"] = action  # 更新action遍历
-                    # 创建
-                    if action == "create_label":
-                        # 如果创建的已经存在，返回存在
-                        if name in self.main_window.dstc.data:
-                            response = json.dumps({"status": f"{name} already exist"})
-                        else:
-                            self.main_window.create_label_signal.emit(message)
-                            response = json.dumps({"status": f"{message} created"})
-                    # 更新,不存在自动创建，可能由于emit问题，创建未完成就更新导致看不到，不影响后续更新
-                    elif action == "update_label":
-                        if name not in self.main_window.dstc.data:
-                            self.main_window.create_label_signal.emit(message)
-                            sleep(0.05)  # 不存在新创建的等待创建成功
-                        else:
-                            self.main_window.update_label_signal.emit(message)
-                            response = json.dumps({"status": f"{message.get('name')} updated"})
-                    # 删除
-                    elif action == "delete_label":
-                        if name in self.main_window.dstc.data:
-                            self.main_window.delete_label_signal.emit(message.get("name"))
-                            response = json.dumps({"status": f"{name} deleted"})
-                        else:
-                            response = json.dumps({"status": f"{name} no exist"})
-                    # 查询
-                    elif action == "labels":
-                        response = json.dumps({"keys": ",".join(self.main_window.dstc.data.keys())})
-                    # 显示
-                    elif action == "show_label":
-                        self.main_window.show_label_signal.emit(message.get("name"))
-                        response = json.dumps({"status": f"{name} shown"})
-                    # 隐藏
-                    elif action == "hide_label":
-                        self.main_window.hide_label_signal.emit(name)
-                        response = json.dumps({"status": f"{name} hidden"})
-                    # 视频
-                    elif action == "video_label":
-                        print("正在播放视频")
-                        if message.get("name") in self.main_window.dstc.data:
-                            response = json.dumps({"status": f"{message.get('name')} already shown"})
-                        else:
-                            Video(self.main_window, message)
-
-                            message["image"] = ""  # 确保路径不会被显示出来
-                            self.main_window.create_label_signal.emit(message)
-
-                            response = json.dumps({"status": f"{message.get('name')} play successfully"})
-                    # 无该操作
-                    else:
-                        response = json.dumps({"status": f"400"})
-
-                # self.send(username, response)
 
             except ConnectionResetError:
                 print(f"{username} 连接断开")
@@ -205,13 +223,13 @@ class CustomTextLabel(QLabel):
             "height": 100,
             "font_size": 25,
             "color": "rgba(255, 0, 0, 1)",
-            "font_family": "Arial",  # 默认字体
-            "font_file": "TTF/微软雅黑.ttf",  # 初始时没有 TTF 字体文件
-            "bold": False,  # 加粗
-            "italic": False,  # 斜体
-            "underline": False,  # 下划线
-            "strikethrough": False,  # 删除线
-            "show": True,  # 是否显示
+            "font_family": "Arial",
+            "font_file": "TTF/微软雅黑.ttf",
+            "bold": False,
+            "italic": False,
+            "underline": False,
+            "strikethrough": False,
+            "show": True,
             # "background-color": "green",  #
             "opacity": 1
         }
@@ -274,7 +292,7 @@ class CustomTextLabel(QLabel):
             font_size=self.adjust_font_size()
             # 设置样式
             style_string = (
-                f"font-size: {font_size}px;"
+                f"font-size: {int(font_size)}px;"
                 f"color: {self.styles.get('color', 'rgb(255, 0, 0, 1)')};"
                 f"background-color: {self.styles.get('background-color', 'None')};"
             )

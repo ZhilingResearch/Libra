@@ -334,7 +334,7 @@ def obstacle_callback(data):
             if i in ros_name:
                 bounding_box = other_actor.bounding_box
                 bounding_box.location+=other_actor.get_location()
-                world.debug.draw_box(bounding_box,other_actor.get_transform().rotation,life_time=0.1,color=carla.Color(0,255,255))
+                world.debug.draw_box(bounding_box,other_actor.get_transform().rotation,life_time=0.1,color=carla.Color(0,255,255),thickness=0.1)
     else:
         pass
         # print("没有检测到障碍物")
@@ -342,7 +342,7 @@ def obstacle_callback(data):
 
 def main():
     # width, height = 1920, 1080
-    width, height = 3440*3,1300
+    width, height = 3440,1300
     vehicle_list = []
     sensor_list = []
 
@@ -427,11 +427,10 @@ def main():
             vehicle_control.auto_flag = auto_manual
 
             # 自动，人工驾驶图标的切换
-            # socket_client.send({
-            #     'name': "auto_blue,auto_gray,manual_blue,manual_gray",
-            #     "action": HudShow.auto_actions[auto_manual]
-            # })
-            #
+            socket_client.send({
+                'name': "auto_blue,auto_gray,manual_blue,manual_gray",
+                "action": HudShow.auto_actions[auto_manual]
+            })
 
             # 绘制路线指引
             # if ArHudShow.route:
@@ -440,34 +439,39 @@ def main():
             #     actor_draw_arrow.draw_flag = False
 
             # 绘制停止的交通标志牌
-            # if ArHudShow.stop_sign:
-            #     stops = world.get_actors().filter("*stop*")
-            #     for stop_sign in stops:
-            #         stop_bb = stop_sign.bounding_box
-            #         stop_bb.location = stop_sign.get_location()
-            #         stop_bb.location.z += 1
-            #
-            #         # world.debug.draw_box(stop_bb, stop_sign.get_transform().rotation,life_time=10,color=carla.Color(r=255,g=0,b=0,a=255))
-            #         rotation = stop_sign.get_transform().rotation
-            #         # rotation.yaw-=180
-            #         world.debug.draw_box(stop_bb, rotation, color=carla.Color(r=255, g=0, b=0, a=255), life_time=0.1)
+            if ArHudShow.stop_sign:
+                stops = world.get_actors().filter("*stop*")
+                for stop_sign in stops:
+                    stop_bb = stop_sign.bounding_box
+                    stop_bb.location = stop_sign.get_location()
+                    stop_bb.location.z += 1
+
+                    # world.debug.draw_box(stop_bb, stop_sign.get_transform().rotation,life_time=10,color=carla.Color(r=255,g=0,b=0,a=255))
+                    rotation = stop_sign.get_transform().rotation
+                    # rotation.yaw-=180
+                    world.debug.draw_box(stop_bb, rotation, color=carla.Color(r=255, g=0, b=0, a=255), life_time=0.1, thickness=0.1)
 
 
             # 电量显示
-            # if time.time() - HudShow.now_time > 0.01:
-            #     # 计算
-            #     dis = ego_vehicle.get_location().distance(HudShow.now_pos)
-            #     HudShow.remaining_mileage = max(HudShow.remaining_mileage - dis / 1000, 0)
-            #     # 更新
-            #     HudShow.now_pos = ego_vehicle.get_location()
-            #     HudShow.now_time = time.time()
-            #
-            # action = HudShow.get_power_from_mileage()
-            # socket_client.send({
-            #     "name": "ele100,ele75,ele50,ele25",
-            #     "action": action
-            # })
+            if time.time() - HudShow.now_time > 0.01:
+                # 计算
+                dis = ego_vehicle.get_location().distance(HudShow.now_pos)
+                HudShow.remaining_mileage = max(HudShow.remaining_mileage - dis / 1000, 0)
+                # 更新
+                HudShow.now_pos = ego_vehicle.get_location()
+                HudShow.now_time = time.time()
 
+            action = HudShow.get_power_from_mileage()
+            socket_client.send({
+                "name": "ele100,ele75,ele50,ele25",
+                "action": action
+            })
+            # 速度显示
+            socket_client.send({
+                'image': str(int(get_speed(ego_vehicle))),
+                "name": "speed",
+                "action": "update_label",
+            })
             # 交通灯提醒
             # traffic_light = ego_vehicle.get_traffic_light()
             # if traffic_light:  # 如果有信号灯
@@ -496,12 +500,7 @@ def main():
             #     speed_limit_number=0
             # speed_limit_number+=1
 
-            # 速度显示
-            # socket_client.send({
-            #     'image': str(int(get_speed(ego_vehicle))),
-            #     "name":"speed",
-            #     "action": "update_label",
-            # })
+
 
             # 车灯开启情况
             # light_state, action = HudShow.light_actions[steering_wheel.low_high_light]

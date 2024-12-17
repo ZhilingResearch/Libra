@@ -90,14 +90,14 @@ class CarlaSyncMode(object):
                 return data
 
 
-def draw_image(surface, image, blend=False):
+def draw_image(surface, image, blend=False, alpha=50):
     array = np.frombuffer(image.raw_data, dtype=np.dtype("uint8"))
     array = np.reshape(array, (image.height, image.width, 4))
     array = array[:, :, :3]
     array = array[:, :, ::-1]
     image_surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
     if blend:
-        image_surface.set_alpha(100)
+        image_surface.set_alpha(alpha)
     surface.blit(image_surface, (0, 0))
 
 
@@ -120,17 +120,18 @@ def should_quit():
 
 
 def main():
+    width, height=1280, 720
     actor_list = []
     pygame.init()
 
     display = pygame.display.set_mode(
-        (800, 600),
+        (width, height),
         pygame.HWSURFACE | pygame.DOUBLEBUF)
     font = get_font()
     clock = pygame.time.Clock()
 
     client = carla.Client('localhost', 2000)
-    client.set_timeout(2.0)
+    client.set_timeout(5.0)
 
     world = client.get_world()
 
@@ -142,19 +143,25 @@ def main():
         blueprint_library = world.get_blueprint_library()
 
         vehicle = world.spawn_actor(
-            random.choice(blueprint_library.filter('vehicle.*')),
+            random.choice(blueprint_library.filter('mini')),
             start_pose)
         actor_list.append(vehicle)
         vehicle.set_simulate_physics(False)
 
+        rgb_bp=blueprint_library.find('sensor.camera.rgb')
+        rgb_bp.set_attribute('image_size_x', f"{width}")
+        rgb_bp.set_attribute('image_size_y', f"{height}")
         camera_rgb = world.spawn_actor(
-            blueprint_library.find('sensor.camera.rgb'),
+            rgb_bp,
             carla.Transform(carla.Location(x=-5.5, z=2.8), carla.Rotation(pitch=-15)),
             attach_to=vehicle)
         actor_list.append(camera_rgb)
 
+        semantic_bp = blueprint_library.find('sensor.camera.instance_segmentation')
+        semantic_bp.set_attribute('image_size_x', f"{width}")
+        semantic_bp.set_attribute('image_size_y', f"{height}")
         camera_semseg = world.spawn_actor(
-            blueprint_library.find('sensor.camera.semantic_segmentation'),
+            semantic_bp,
             carla.Transform(carla.Location(x=-5.5, z=2.8), carla.Rotation(pitch=-15)),
             attach_to=vehicle)
         actor_list.append(camera_semseg)
@@ -178,7 +185,7 @@ def main():
 
                 # Draw the display.
                 draw_image(display, image_rgb)
-                draw_image(display, image_semseg, blend=True)
+                draw_image(display, image_semseg, blend=True,alpha=60)
                 display.blit(
                     font.render('% 5d FPS (real)' % clock.get_fps(), True, (255, 255, 255)),
                     (8, 10))

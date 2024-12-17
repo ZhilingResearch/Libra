@@ -51,7 +51,7 @@ def sensor_callback(sensor_data, sensor_queue, sensor_name):
 def main():
     # We start creating the client
     client = carla.Client('localhost', 2000)
-    client.set_timeout(2.0)
+    client.set_timeout(5.0)
     world = client.get_world()
 
     try:
@@ -61,7 +61,7 @@ def main():
         settings = world.get_settings()
 
         # We set CARLA syncronous mode
-        settings.fixed_delta_seconds = 0.2
+        settings.fixed_delta_seconds = 0.05
         settings.synchronous_mode = True
         world.apply_settings(settings)
 
