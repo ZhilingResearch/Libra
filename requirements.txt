@@ -78,4 +78,3 @@ tzdata==2024.2
 wcwidth==0.2.13
 Werkzeug==3.0.6
 widgetsnbextension==4.0.13
-zipp==3.21.0
