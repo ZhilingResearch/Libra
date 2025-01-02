@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70577fac-e598-423b-8b3c-7915e7d9cdd3" name="更改" comment="" />
+    <list default="true" id="70577fac-e598-423b-8b3c-7915e7d9cdd3" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +64,7 @@
     "Python.test.executor": "Run",
     "Python.查看道路方向.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Lenovo/Desktop/Libra/config",
@@ -283,8 +286,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
-        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
       </set>
     </attachedChunks>
   </component>
@@ -321,6 +324,7 @@
       <workItem from="1734072616813" duration="1043000" />
       <workItem from="1734080487727" duration="1364000" />
       <workItem from="1734083273566" duration="19907000" />
+      <workItem from="1735789009806" duration="928000" />
     </task>
     <servers />
   </component>
@@ -339,22 +343,22 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Libra$run_synchronization.coverage" NAME="run_synchronization 覆盖结果" MODIFIED="1733364403779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo" />
-    <SUITE FILE_PATH="coverage/Libra$rss_sensor.coverage" NAME="rss_sensor 覆盖结果" MODIFIED="1734406485491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples/rss" />
-    <SUITE FILE_PATH="coverage/Libra$sumo_simulation.coverage" NAME="sumo_simulation 覆盖结果" MODIFIED="1733361743488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo/sumo_integration" />
-    <SUITE FILE_PATH="coverage/Libra$manual_control.coverage" NAME="manual_control 覆盖结果" MODIFIED="1734413703737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
-    <SUITE FILE_PATH="coverage/Libra$hud_main.coverage" NAME="hud_main 覆盖结果" MODIFIED="1734426931600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Libra$sensor_synchronization.coverage" NAME="sensor_synchronization 覆盖结果" MODIFIED="1734401807927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
-    <SUITE FILE_PATH="coverage/Libra$randomTrips.coverage" NAME="randomTrips 覆盖结果" MODIFIED="1733198181668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo/examples/net" />
-    <SUITE FILE_PATH="coverage/Libra$.coverage" NAME="查看道路方向 覆盖结果" MODIFIED="1734403771229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
-    <SUITE FILE_PATH="coverage/Libra$carla_main.coverage" NAME="carla_main 覆盖结果" MODIFIED="1734427086439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Libra$manual_control_rss.coverage" NAME="manual_control_rss 覆盖结果" MODIFIED="1734406429137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples/rss" />
     <SUITE FILE_PATH="coverage/Libra$test.coverage" NAME="test 覆盖结果" MODIFIED="1734426105257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Libra$open3d_lidar.coverage" NAME="open3d_lidar 覆盖结果" MODIFIED="1734421888322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
-    <SUITE FILE_PATH="coverage/Libra$manual.coverage" NAME="manual视角切换 覆盖结果" MODIFIED="1733194847696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
     <SUITE FILE_PATH="coverage/Libra$generate_traffic.coverage" NAME="generate_traffic 覆盖结果" MODIFIED="1734416922798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
-    <SUITE FILE_PATH="coverage/Libra$synchronous_mode.coverage" NAME="synchronous_mode 覆盖结果" MODIFIED="1734401475380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
+    <SUITE FILE_PATH="coverage/Libra$manual_control_rss.coverage" NAME="manual_control_rss 覆盖结果" MODIFIED="1734406429137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples/rss" />
+    <SUITE FILE_PATH="coverage/Libra$sensor_synchronization.coverage" NAME="sensor_synchronization 覆盖结果" MODIFIED="1734401807927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
+    <SUITE FILE_PATH="coverage/Libra$hud_main.coverage" NAME="hud_main Coverage Results" MODIFIED="1735789027968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Libra$rss_visualization.coverage" NAME="rss_visualization 覆盖结果" MODIFIED="1734406391902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples/rss" />
+    <SUITE FILE_PATH="coverage/Libra$carla_main.coverage" NAME="carla_main Coverage Results" MODIFIED="1735789932679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Libra$synchronous_mode.coverage" NAME="synchronous_mode 覆盖结果" MODIFIED="1734401475380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
+    <SUITE FILE_PATH="coverage/Libra$run_synchronization.coverage" NAME="run_synchronization 覆盖结果" MODIFIED="1733364403779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo" />
+    <SUITE FILE_PATH="coverage/Libra$rss_sensor.coverage" NAME="rss_sensor 覆盖结果" MODIFIED="1734406485491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples/rss" />
     <SUITE FILE_PATH="coverage/Libra$get_data.coverage" NAME="get_data 覆盖结果" MODIFIED="1733023899152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Libra$manual_control.coverage" NAME="manual_control 覆盖结果" MODIFIED="1734413703737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PythonAPI/examples" />
+    <SUITE FILE_PATH="coverage/Libra$sumo_simulation.coverage" NAME="sumo_simulation 覆盖结果" MODIFIED="1733361743488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo/sumo_integration" />
+    <SUITE FILE_PATH="coverage/Libra$manual.coverage" NAME="manual视角切换 覆盖结果" MODIFIED="1733194847696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
+    <SUITE FILE_PATH="coverage/Libra$randomTrips.coverage" NAME="randomTrips 覆盖结果" MODIFIED="1733198181668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sumo/examples/net" />
+    <SUITE FILE_PATH="coverage/Libra$.coverage" NAME="查看道路方向 覆盖结果" MODIFIED="1734403771229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/custom_code" />
   </component>
 </project>

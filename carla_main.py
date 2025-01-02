@@ -401,7 +401,7 @@ def main():
         actor_draw_arrow = ActorDrawArrow(ego_vehicle)
         # actor_draw_arrow.color = (255, 0, 0)  # 红色
         # actor_draw_arrow.color = (0,255,0)  # 绿色
-        actor_draw_arrow.draw_flag = False
+        actor_draw_arrow.draw_flag = True
         actor_draw_arrow.draw()
 
         # 车辆控制器
