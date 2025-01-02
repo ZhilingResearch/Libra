@@ -76,5 +76,4 @@ torchvision==0.20.0
 traitlets==5.14.3
 tzdata==2024.2
 wcwidth==0.2.13
-Werkzeug==3.0.6
 widgetsnbextension==4.0.13
